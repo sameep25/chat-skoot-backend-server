@@ -12,7 +12,9 @@ import messageRoutes from "./routes/messageRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://chat-skoot.netlify.app"
+}));
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -33,7 +35,7 @@ httpServer.listen(PORT, () => {
 const io = new Server(httpServer, {
   pingTimeout: 60000,
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://chat-skoot.netlify.app",
   },
 });
 
