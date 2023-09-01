@@ -61,8 +61,8 @@ export const getUsers = async(req ,res) =>{
   try{
     const keyword = req.query.search ? { //searching users by their name or email using query params
       "$or": [                                    
-        {name : { $regex: req.query.search ,$options:"<i>" } } ,
-        {email : { $regex: req.query.search ,$options:"<i>" } }
+        {name : { $regex: req.query.search ,$options:"i" } } ,
+        {email : { $regex: req.query.search ,$options:"i" } }
       ]
     }:{} ;
     // console.log(keyword.$or);
